@@ -24,23 +24,44 @@ This library is designed to be framework-friendly, modifying your elements in-pl
 
 Using `mac-window.js` is simple. Just include the CSS and JS files and add the `mac-window` attribute to any `<div>`.
 
-### 1\. Include the files
+Of course! Here’s an English version of the polished README you can use for your `mac-window.js` project:
 
-Link the `mac-window.css` in the `<head>` of your HTML file and the `mac-window.js` script at the end of your `<body>`.
+---
+
+# mac-window.js
+
+A lightweight JavaScript library for creating beautiful macOS-style window UIs in your web projects.
+
+## 🌟 Quick Start
+
+### 1. Include the Files
+
+Use [jsDelivr CDN](https://www.jsdelivr.com/) to easily load the CSS and JavaScript:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Awesome App</title>
-    <link rel="stylesheet" href="path/to/mac-window.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mac-window.js/mac-window.css">
 </head>
 <body>
-    <script src="path/to/mac-window.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mac-window.js/mac-window.js"></script>
 </body>
 </html>
 ```
+
+
+### 2. Usage
+
+Wrap your content inside a container with the `mac-window` class. The library will automatically apply the macOS-style look:
+
+```html
+<div class="mac-window">
+  <div class="mac-window-header">Window Title</div>
+  <div class="mac-window-content">Your content goes here</div>
+</div>
+```
+
 
 ### 2\. Create a Window
 
