@@ -1,0 +1,15 @@
+{
+  "name": "mac-window.js",
+  "version": "1.0.0",
+  "description": "A lightweight, zero-dependency JavaScript library for creating beautiful, interactive, and configurable macOS-style windows on your web pages.",
+  "main": "mac-window.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "window",
+    "macOS"
+  ],
+  "author": "Kevin Wong",
+  "license": "MIT"
+}

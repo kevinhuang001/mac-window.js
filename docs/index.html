@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mac-window.js Library Demo</title>
+  
+  <link rel="stylesheet" href="mac-window.css">
+  
+  <style>
+    /* A nice background for the demo page */
+    body {
+      background-color: #4158D0;
+      background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div 
+    mac-window 
+    mac-window-title="Default Window">
+    <h1>Hello World!</h1>
+    <p>This is a standard window. Since no position or size is specified, it automatically centers itself on the screen.</p>
+  </div>
+  
+  <div 
+    mac-window 
+    mac-window-title="Custom Position & Size"
+    mac-window-width="500px" 
+    mac-window-height="250px"
+    mac-window-top="50px"
+    mac-window-left="60px">  
+    <h2>Custom Placement</h2>
+    <p>This window's position and size are set directly in the HTML attributes:</p>
+    <ul>
+      <li><code>mac-window-width="500px"</code></li>
+      <li><code>mac-window-height="250px"</code></li>
+      <li><code>mac-window-top="50px"</code></li>
+      <li><code>mac-window-left="60px"</code></li>
+    </ul>
+  </div>
+
+  <div 
+    mac-window 
+    mac-window-title="Starts Minimized"
+    mac-window-top="150px"
+    mac-window-left="700px"
+    mac-window-initial-state="minimized">  
+    <h2>I'm Minimized!</h2>
+    <p>This window uses <code>mac-window-initial-state="minimized"</code>, so it starts in the dock. Click the icon in the bottom-left corner to restore it.</p>
+  </div>
+
+  <div 
+    mac-window 
+    mac-window-title="Starts Maximized"
+    mac-window-initial-state="maximized">
+    <h1>Starts Maximized</h1>
+    <p>This window uses <code>mac-window-initial-state="maximized"</code> to automatically fill the screen on page load.</p>
+    <p>Click the green button to restore it to its default size.</p>
+  </div>
+  
+  <div 
+    mac-window 
+    mac-window-title="Embedding Google"
+    mac-window-width="700px" 
+    mac-window-height="550px"
+    mac-window-top="320px"
+    mac-window-left="500px"
+    mac-window-flush-content>
+    <iframe 
+      src="https://www.google.com/search?igu=1&q=HelloWorld"
+      width="100%" 
+      height="100%" 
+      frameborder="0">
+    </iframe>
+  </div>
+
+  <script>
+    // Global configuration for the mac-window library.
+    // This allows you to set offsets for all windows if your page has issues.
+    window.macWindowConfig = {
+      fullscreenOffsetX: '0px',
+      fullscreenOffsetY: '0px',
+      // You can also override the default fullscreen size.
+      // e.g., '100%' or 'calc(100vw - 17px)'
+      fullscreenWidth: '100vw',
+      fullscreenHeight: '100vh'
+    };
+  </script>
+
+  <script src="mac-window.js"></script>
+
+</body>
+</html>

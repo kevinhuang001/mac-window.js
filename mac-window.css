@@ -1,0 +1,191 @@
+[mac-window] {
+  box-sizing: border-box; 
+  position: fixed;
+  min-width: 300px;
+  min-height: 200px;
+  background-color: #f6f6f6;
+  border-radius: 12px;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d1d1d1;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: width 0.35s ease-in-out, height 0.35s ease-in-out, 
+              top 0.35s ease-in-out, left 0.35s ease-in-out, 
+              transform 0.35s ease-in-out, opacity 0.3s ease-in-out,
+              border-radius 0.35s ease-in-out;
+}
+
+[mac-window].is-dragging {
+  transition: none;
+  user-select: none;
+}
+[mac-window].maximized {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+[mac-window].is-minimizing {
+  transform: scale(0);
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+.mac-window-badge {
+  position: fixed; 
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform 0.25s ease-out, left 0.35s ease-in-out;
+}
+.mac-window-badge:hover {
+  transform: translateY(-6px);
+}
+.mac-window-badge-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(220, 220, 220, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mac-window-badge-icon svg {
+  width: 28px; height: 28px; color: #555;
+}
+.mac-window-badge-title {
+  color: #333;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin-top: 6px;
+  text-shadow: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+}
+
+[mac-window] .mac-window-title-bar {
+  height: 40px;
+  background-color: #e8e8e8;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  position: relative;
+  user-select: none;
+  border-bottom: 1px solid #d1d1d1;
+  flex-shrink: 0;
+  cursor: grab;
+}
+[mac-window].maximized .mac-window-title-bar { cursor: default; }
+[mac-window] .mac-window-title-bar:active { cursor: grabbing; }
+
+[mac-window] .mac-window-controls { display: flex; align-items: center; }
+[mac-window] .mac-window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[mac-window] .mac-window-control.close { background-color: #ff5f57; }
+[mac-window] .mac-window-control.minimize { background-color: #ffbd2e; }
+[mac-window] .mac-window-control.maximize { background-color: #28c940; }
+
+[mac-window] .mac-window-control svg {
+  width: 8px; height: 8px; color: rgba(0, 0, 0, 0.6);
+  visibility: hidden; opacity: 0; transition: opacity 0.2s ease;
+}
+[mac-window]:hover .mac-window-control svg { visibility: visible; opacity: 1; }
+[mac-window] .mac-window-title {
+  color: #4d4d4d; font-size: 14px; font-weight: 500;
+  text-align: center; flex-grow: 1; margin-right: 54px;
+}
+[mac-window] .mac-window-content {
+  padding: 10px 20px; flex-grow: 1; overflow: auto;
+}
+[mac-window] .mac-window-content h1,
+[mac-window] .mac-window-content h2,
+[mac-window] .mac-window-content h3,
+[mac-window] .mac-window-content h4,
+[mac-window] .mac-window-content h5,
+[mac-window] .mac-window-content h6,
+[mac-window] .mac-window-content p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+[mac-window] .mac-window-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+[mac-window] .mac-window-content p:last-child {
+  margin-bottom: 0;
+}
+[mac-window] .mac-window-content h1 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 0.5em;
+  margin-bottom: 0.6em;
+}
+[mac-window] .mac-window-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3em;
+}
+[mac-window] .mac-window-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+[mac-window] .mac-window-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+[mac-window] .mac-window-content h5 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+[mac-window] .mac-window-content h6 {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #444;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+[mac-window] .mac-window-content a {
+  color: #007aff;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+[mac-window] .mac-window-content a:hover {
+  text-decoration: underline;
+}
